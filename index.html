@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中文第一册综合能力评估 (净化版)</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f5f7fa; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { text-align: center; color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; border-left: 6px solid #3498db; padding-left: 15px; }
+        .reading-box { background: #fdfdfd; border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px; font-size: 1.15em; margin: 15px 0; line-height: 2; }
+        .question-item { margin-bottom: 25px; padding: 15px; border-bottom: 1px dashed #eee; }
+        .options { list-style: none; padding: 0; margin-top: 10px; }
+        .option { background: #f8f9fa; border: 1px solid #dee2e6; padding: 12px 18px; margin: 8px 0; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .option:hover { background: #e9ecef; border-color: #3498db; }
+        .feedback { display: none; margin-top: 10px; padding: 12px; border-radius: 6px; font-weight: bold; }
+        .right { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        input[type="text"] { width: 100%; max-width: 500px; padding: 10px; border: 2px solid #ddd; border-radius: 6px; font-size: 1em; margin: 10px 0; box-sizing: border-box;}
+        button.check-btn { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-left: 5px;}
+        button.check-btn:hover { background: #2980b9; }
+        .input-group { display: flex; flex-wrap: wrap; align-items: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>中文第一册综合能力评估</h1>
+
+    <h2>一、阅读理解 (Reading Comprehension)</h2>
+    <div class="reading-box">
+        大卫家离学校不远。他每天走路去上学。他学校的设施非常齐全，不但有很大的图书馆，还有两个游泳池。大卫最喜欢的课是数学，他觉得数学很有意思。
+    </div>
+
+    <div class="question-item">
+        <p>1. 关于大卫，以下哪项是正确的？</p>
+        <div class="options">
+            <div class="option" onclick="ans(this, false, '错误：文中说他“走路”去上学。', 'f1')">A. 大卫每天坐出租车去学校。</div>
+            <div class="option" onclick="ans(this, false, '错误：文中提到有两个游泳池。', 'f1')">B. 大卫的学校没有运动设施。</div>
+            <div class="option" onclick="ans(this, true, '正确！文中提到数学“很有意思”。', 'f1')">C. 大卫觉得数学课很有趣。</div>
+        </div>
+        <div id="f1" class="feedback"></div>
+    </div>
+
+    <h2>二、改错与词汇 (Error Correction & Vocab)</h2>
+    <p>请找出句子中的错误并输入正确的词：</p>
+    
+    <div class="question-item">
+        <p>3. 我的哥哥个子很高，他有很长的<strong>毛</strong>。</p>
+        <div class="input-group">
+            <input type="text" id="edit3" placeholder="请输入正确的词">
+            <button class="check-btn" onclick="checkEdit(3, '头发')">检查</button>
+        </div>
+        <div id="ef3" class="feedback"></div>
+    </div>
+
+    <div class="question-item">
+        <p>4. 在餐厅，大卫对服务员说：“请给我一双<strong>勺子</strong>，我要吃面条。”</p>
+        <div class="input-group">
+            <input type="text" id="edit4" placeholder="请输入正确的词">
+            <button class="check-btn" onclick="checkEdit(4, '筷子')">检查</button>
+        </div>
+        <div id="ef4" class="feedback"></div>
+    </div>
+
+    <h2>三、语法练习 (Sentence Structure)</h2>
+    <p>请将括号里的词语排列成正确的句子：</p>
+
+    <div class="question-item">
+        <p>7. [ 爸爸 / 高尔夫球 / 的 / 爱好 / 是 / 打 ]</p>
+        <div class="input-group">
+            <input type="text" id="input7" placeholder="在这里输入完整的句子">
+            <button class="check-btn" onclick="checkSentence(7, '爸爸的爱好是打高尔夫球。')">检查</button>
+        </div>
+        <div id="f7" class="feedback"></div>
+    </div>
+
+    <div class="question-item">
+        <p>8. [ 虽然 / 混血儿 / 但是 / 不太 / 中文 / 他是 / 会说 ]</p>
+        <div class="input-group">
+            <input type="text" id="input8" placeholder="在这里输入完整的句子">
+            <button class="check-btn" onclick="checkSentence(8, '虽然他是混血儿，但是不太会说中文。')">检查</button>
+        </div>
+        <div id="f8" class="feedback"></div>
+    </div>
+
+    <h2>四、综合辨析 (General Knowledge)</h2>
+
+    <div class="question-item">
+        <p>9. 哪一个词描述“很想快点做完事，没有耐心”的人？</p>
+        <div class="options">
+            <div class="option" onclick="ans(this, false, '错误：慢性子是指做事不慌不忙、速度慢的人。', 'f9')">A. 慢性子</div>
+            <div class="option" onclick="ans(this, true, '正确：急性子是指性子急、做事快的人。', 'f9')">B. 急性子</div>
+        </div>
+        <div id="f9" class="feedback"></div>
+    </div>
+
+    <div class="question-item">
+        <p>10. 如果你在路上撞到了别人，你应该说：</p>
+        <div class="options">
+            <div class="option" onclick="ans(this, true, '正确：当做错事或给别人带来不便时，应该道歉说“对不起”。', 'f10')">A. 对不起</div>
+            <div class="option" onclick="ans(this, false, '错误：没关系是回答“对不起”的礼貌语。', 'f10')">B. 没关系</div>
+        </div>
+        <div id="f10" class="feedback"></div>
+    </div>
+</div>
+
+<script>
+    function ans(el, isRight, text, fId) {
+        const feedback = document.getElementById(fId);
+        feedback.style.display = 'block';
+        feedback.innerText = text;
+        feedback.className = 'feedback ' + (isRight ? 'right' : 'wrong');
+        const options = el.parentElement.getElementsByClassName('option');
+        for(let opt of options) {
+            opt.style.borderColor = '#dee2e6';
+            opt.style.background = '#f8f9fa';
+        }
+        el.style.borderColor = isRight ? '#28a745' : '#dc3545';
+        el.style.background = isRight ? '#e6ffec' : '#fff5f5';
+    }
+
+    function checkEdit(id, correct) {
+        const user = document.getElementById('edit' + id).value.trim();
+        const feedback = document.getElementById('ef' + id);
+        feedback.style.display = 'block';
+        if (user === correct) {
+            feedback.innerText = '正确！应该改为“' + correct + '”。';
+            feedback.className = 'feedback right';
+        } else {
+            feedback.innerText = '不对哦，再想想。';
+            feedback.className = 'feedback wrong';
+        }
+    }
+
+    function checkSentence(id, correct) {
+        const user = document.getElementById('input' + id).value.trim().replace(/[。？！，]/g, "");
+        const cleanCorrect = correct.replace(/[。？！，]/g, "");
+        const feedback = document.getElementById('f' + id);
+        feedback.style.display = 'block';
+        if (user === cleanCorrect) {
+            feedback.innerText = '正确！标准答案：' + correct;
+            feedback.className = 'feedback right';
+        } else {
+            feedback.innerText = '再试试。标准语序是：' + correct;
+            feedback.className = 'feedback wrong';
+        }
+    }
+</script>
+
+</body>
+</html>
